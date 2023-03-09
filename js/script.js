@@ -1,9 +1,9 @@
-let playGame = (buttonNumber) => {
-	let getRandom = () => {
+const playGame = (buttonNumber) => {
+	const getRandom = () => {
 		return Math.floor(Math.random() * 3 + 1);
 	}
 	
-	let getMoveByNumber = (moveNumber) => {
+	const getMoveByNumber = (moveNumber) => {
 		switch(moveNumber) {
 			case 1: return 'kamień';
 			case 2: return 'papier';
@@ -12,11 +12,11 @@ let playGame = (buttonNumber) => {
 		}
 	}
 	
-	let getComputerMove = () => {
+	const getComputerMove = () => {
 		return getMoveByNumber(getRandom());
 	}
 	
-	let getResult = (playerMove, computerMove) => {
+	const getResult = (playerMove, computerMove) => {
 		if (playerMove == 'nieznany ruch') {
 			return 'Gracz ma nieznany ruch! Zagraj jeszcze raz.'
 		}
@@ -56,21 +56,21 @@ let playGame = (buttonNumber) => {
 	}
 
 	clearMessages();
-	let computerMove = getComputerMove();
-	let playerMove = getMoveByNumber(buttonNumber);
+	const computerMove = getComputerMove();
+	const playerMove = getMoveByNumber(buttonNumber);
 	
 	printMessage('Twój ruch to: ' + playerMove);
 	printMessage('Mój ruch to: ' + computerMove);
 	printMessage(getResult(playerMove, computerMove));
 }
 
-let playRock = () => {
+const playRock = () => {
 	playGame(1);
 }
-let playPaper = () => {
+const playPaper = () => {
 	playGame(2);
 }
-let playScissors = () => {
+const playScissors = () => {
 	playGame(3);
 }
 
