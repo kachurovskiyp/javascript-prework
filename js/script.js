@@ -1,14 +1,26 @@
-function printMessage(msg){
+let printMessage = (msg) => {
 	let div = document.createElement('div');
 	div.innerHTML = msg;
 	document.getElementById('messages').appendChild(div);
 }
 
-function clearMessages(){
+let clearMessages = () => {
 	document.getElementById('messages').innerHTML = '';
 }
 
-let computerMove = `kamień`;
-let playerMove = `papier`;
+let getRandom = () => {
+	return Math.floor(Math.random() * 3 + 1);
+}
 
-printMessage('Zagrałem ' + computerMove + '! Jeśli Twój ruch to ' + playerMove + ', to wygrywasz!');
+let getComputerMove = () => {
+	switch(getRandom()) {
+		case 1: return 'kamień';
+		case 2: return 'papier';
+		case 3: return 'nożyce';
+		default: return 'nieznany ruch';
+	}
+}
+
+let computerMove = getComputerMove();
+
+printMessage('Mój ruch to: ' + computerMove);
